@@ -1,9 +1,11 @@
 package com.mike.mike.Person;
 
+import com.mike.mike.SuccessResponse.SuccessResponse;
 import jakarta.persistence.Id;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +34,29 @@ public class PersonController {
         return ResponseEntity.ok(person);
     }
 
+    @PostMapping("/add-person")
+    public ResponseEntity<SuccessResponse> addPerson(@RequestBody Person person){
+        personRepository.save(person);
+        return ResponseEntity.ok(new SuccessResponse("true", "Record added successfully"));
+    }
+
+    @PutMapping("/update-person/{id}")
+    public ResponseEntity<SuccessResponse> updatePerson(@PathVariable Integer id, @RequestBody Person person){
+        Optional<Person> findPerson = personRepository.findById(id);
+        if(findPerson.isEmpty()){
+            throw new RuntimeException("Person not found");
+        }
+
+        person.setId(id);
+        personRepository.save(person);
+
+
+
+        return ResponseEntity.ok(new SuccessResponse("true", "Person updated successfully"));
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, String>> deletePerson(@PathVariable Integer id){
+    public ResponseEntity<SuccessResponse> deletePerson(@PathVariable Integer id){
         Optional<Person> personDeleted = personRepository.findById(id);
         if(personDeleted.isEmpty()){
             throw new RuntimeException("Person Does not exist");
@@ -42,10 +65,6 @@ public class PersonController {
         Person person = personRepository.findById(id).get();
         personRepository.delete(person);
 
-        Map<String, String> response = new HashMap<>();
-        response.put("message", "Person Deleted Successfully");
-        response.put("person", person.toString());
-
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(new SuccessResponse("true", "Person deleted successfully"));
     }
 }
