@@ -12,18 +12,3 @@ CREATE TABLE person (
 
 );
 
-use banks;
-
-INSERT INTO person (id, last_name, first_name, date_of_birth, email, phone_number, address, tax_identifier)
-VALUES
-(4, 'Owino', 'Michael', '1995-06-15', 'michael.owino@example.com', '123-456-7890', '123 Main St, Nairobi', 'TAX12345');
-
-INSERT INTO person (id, last_name, first_name, date_of_birth, email, phone_number, address, tax_identifier)
-VALUES
-(5, 'Smith', 'John', '1988-09-25', 'john.smith@example.com', '987-654-3210', '456 Oak St, London', 'TAX67890');
-
-INSERT INTO person (id, last_name, first_name, date_of_birth, email, phone_number, address, tax_identifier)
-VALUES
-(6, 'Doe', 'Jane', '1992-11-05', 'jane.doe@example.com', '555-123-4567', '789 Pine St, New York', 'TAX11223');
-
-
