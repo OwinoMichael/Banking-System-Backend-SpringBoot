@@ -12,7 +12,3 @@ CREATE TABLE person (
 
 );
 
-CREATE TABLE employee(
-	employeeId INT AUTO_INCREMENT PRIMARY KEY,
-    position VARCHAR(100) NOT NULL
-);
