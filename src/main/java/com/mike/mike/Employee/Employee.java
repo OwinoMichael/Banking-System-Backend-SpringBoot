@@ -65,19 +65,11 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position);
+        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position) && Objects.equals(createdAt, employee.createdAt) && Objects.equals(updatedAt, employee.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, position);
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + id +
-                ", position='" + position + '\'' +
-                '}';
+        return Objects.hash(id, position, createdAt, updatedAt);
     }
 }
