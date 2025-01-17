@@ -1,5 +1,8 @@
 package com.mike.mike.Person;
 
+import com.mike.mike.Person.commandHandler.AddPerson;
+import com.mike.mike.Person.queryHandler.GetAllPersons;
+import com.mike.mike.Person.queryHandler.GetPerson;
 import com.mike.mike.SuccessResponse.SuccessResponse;
 import jakarta.persistence.Id;
 import org.springframework.http.ResponseEntity;
@@ -16,28 +19,31 @@ import java.util.Optional;
 public class PersonController {
 
     private final PersonRepository personRepository;
+    private final GetPerson fetchPerson;
+    private final GetAllPersons fetchAllPersons;
+    private final AddPerson addPerson;
 
-    public PersonController(PersonRepository personRepository) {
+    public PersonController(PersonRepository personRepository, GetPerson fetchPerson, GetAllPersons fetchAllPersons, AddPerson addPerson) {
         this.personRepository = personRepository;
+        this.fetchPerson = fetchPerson;
+        this.fetchAllPersons = fetchAllPersons;
+        this.addPerson = addPerson;
     }
 
     @GetMapping
     public ResponseEntity<List<Person>> getAllPersons(){
-        List<Person> persons = personRepository.findAll();
-        return ResponseEntity.ok(persons);
 
+        return fetchAllPersons.execute(null);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Person>> getPerson(@PathVariable Integer id){
-        Optional<Person> person = personRepository.findById(id);
-        return ResponseEntity.ok(person);
+        return fetchPerson.execute(id);
     }
 
     @PostMapping("/add-person")
     public ResponseEntity<SuccessResponse> addPerson(@RequestBody Person person){
-        personRepository.save(person);
-        return ResponseEntity.ok(new SuccessResponse("true", "Record added successfully"));
+        return addPerson.execute(person);
     }
 
     @PutMapping("/update-person/{id}")
