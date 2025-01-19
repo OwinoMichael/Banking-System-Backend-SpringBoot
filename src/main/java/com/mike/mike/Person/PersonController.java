@@ -1,17 +1,16 @@
 package com.mike.mike.Person;
 
 import com.mike.mike.Person.commandHandler.AddPerson;
+import com.mike.mike.Person.commandHandler.DeletePerson;
+import com.mike.mike.Person.commandHandler.UpdatePerson;
+import com.mike.mike.Person.commandHandler.UpdatePersonCommand;
 import com.mike.mike.Person.queryHandler.GetAllPersons;
 import com.mike.mike.Person.queryHandler.GetPerson;
 import com.mike.mike.SuccessResponse.SuccessResponse;
-import jakarta.persistence.Id;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -22,12 +21,21 @@ public class PersonController {
     private final GetPerson fetchPerson;
     private final GetAllPersons fetchAllPersons;
     private final AddPerson addPerson;
+    private final UpdatePerson updatePerson;
+    private final DeletePerson deletePerson;
 
-    public PersonController(PersonRepository personRepository, GetPerson fetchPerson, GetAllPersons fetchAllPersons, AddPerson addPerson) {
+    public PersonController(PersonRepository personRepository,
+                            GetPerson fetchPerson,
+                            GetAllPersons fetchAllPersons,
+                            AddPerson addPerson,
+                            UpdatePerson updatePerson,
+                            DeletePerson deletePerson) {
         this.personRepository = personRepository;
         this.fetchPerson = fetchPerson;
         this.fetchAllPersons = fetchAllPersons;
         this.addPerson = addPerson;
+        this.updatePerson = updatePerson;
+        this.deletePerson = deletePerson;
     }
 
     @GetMapping
@@ -48,29 +56,13 @@ public class PersonController {
 
     @PutMapping("/update-person/{id}")
     public ResponseEntity<SuccessResponse> updatePerson(@PathVariable Integer id, @RequestBody Person person){
-        Optional<Person> findPerson = personRepository.findById(id);
-        if(findPerson.isEmpty()){
-            throw new RuntimeException("Person not found");
-        }
+        UpdatePersonCommand updatePersonCommand = new UpdatePersonCommand(id, person);
 
-        person.setId(id);
-        personRepository.save(person);
-
-
-
-        return ResponseEntity.ok(new SuccessResponse("true", "Person updated successfully"));
+        return updatePerson.execute(updatePersonCommand);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<SuccessResponse> deletePerson(@PathVariable Integer id){
-        Optional<Person> personDeleted = personRepository.findById(id);
-        if(personDeleted.isEmpty()){
-            throw new RuntimeException("Person Does not exist");
-        }
-
-        Person person = personRepository.findById(id).get();
-        personRepository.delete(person);
-
-        return ResponseEntity.ok(new SuccessResponse("true", "Person deleted successfully"));
+        return deletePerson.execute(id);
     }
 }
