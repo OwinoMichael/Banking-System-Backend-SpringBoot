@@ -1,6 +1,7 @@
 package com.mike.mike.Person.commandHandler;
 
 import com.mike.mike.Command;
+import com.mike.mike.Exception.ResourceNotFound;
 import com.mike.mike.Person.Person;
 import com.mike.mike.Person.PersonRepository;
 import com.mike.mike.SuccessResponse.SuccessResponse;
@@ -25,7 +26,7 @@ public class UpdatePerson implements Command<UpdatePersonCommand, SuccessRespons
 
         Optional<Person> updatePerson = personRepository.findById(id);
         if(updatePerson.isEmpty()){
-            throw new RuntimeException("Person Not Found");
+            throw new ResourceNotFound("Person");
         }
 
         person.setId(id);
