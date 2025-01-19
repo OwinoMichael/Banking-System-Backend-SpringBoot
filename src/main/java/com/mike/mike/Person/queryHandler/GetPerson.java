@@ -1,5 +1,6 @@
 package com.mike.mike.Person.queryHandler;
 
+import com.mike.mike.Exception.ResourceNotFound;
 import com.mike.mike.Person.Person;
 import com.mike.mike.Person.PersonRepository;
 import com.mike.mike.Query;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GetPerson implements Query<Integer, Optional<Person>> {
+public class GetPerson implements Query<Integer, Person> {
 
     private final PersonRepository personRepository;
 
@@ -19,8 +20,9 @@ public class GetPerson implements Query<Integer, Optional<Person>> {
     }
 
     @Override
-    public ResponseEntity<Optional<Person>> execute(Integer id) {
-        Optional<Person> person = personRepository.findById(id);
+    public ResponseEntity<Person> execute(Integer id) {
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFound("Person"));
         return ResponseEntity.ok(person);
     }
 }

@@ -45,7 +45,7 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Person>> getPerson(@PathVariable Integer id){
+    public ResponseEntity<Person> getPerson(@PathVariable Integer id){
         return fetchPerson.execute(id);
     }
 
