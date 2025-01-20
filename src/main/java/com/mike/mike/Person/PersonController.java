@@ -17,20 +17,17 @@ import java.util.Optional;
 @RequestMapping("/persons")
 public class PersonController {
 
-    private final PersonRepository personRepository;
     private final GetPerson fetchPerson;
     private final GetAllPersons fetchAllPersons;
     private final AddPerson addPerson;
     private final UpdatePerson updatePerson;
     private final DeletePerson deletePerson;
 
-    public PersonController(PersonRepository personRepository,
-                            GetPerson fetchPerson,
+    public PersonController(GetPerson fetchPerson,
                             GetAllPersons fetchAllPersons,
                             AddPerson addPerson,
                             UpdatePerson updatePerson,
                             DeletePerson deletePerson) {
-        this.personRepository = personRepository;
         this.fetchPerson = fetchPerson;
         this.fetchAllPersons = fetchAllPersons;
         this.addPerson = addPerson;
