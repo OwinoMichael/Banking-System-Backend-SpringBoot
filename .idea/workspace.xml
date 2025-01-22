@@ -6,26 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="418639e3-30d5-482c-b319-cd6863a28129" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL_QUERIES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_QUERIES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/AddEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/AddEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/DeleteEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/DeleteEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/UpdateEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/UpdateEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/UpdateEmployeeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/commandHandler/UpdateEmployeeParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/queryHandler/GetAllEmployees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/queryHandler/GetAllEmployees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/queryHandler/GetEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Employee/queryHandler/GetEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Person/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Person/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Person/commandHandler/UpdatePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Person/commandHandler/UpdatePerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Person/commandHandler/UpdatePersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Person/commandHandler/UpdatePersonParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Employee/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mike/mike/Employee/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Employee/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mike/mike/Employee/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mike/mike/Exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Exception/ResourceNotValid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mike/mike/Exception/ResourceNotValid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Person/PersonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mike/mike/Person/PersonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Person/commandHandler/UpdatePerson.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mike/mike/Person/commandHandler/UpdatePerson.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mike/mike/Person/commandHandler/UpdatePersonCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Customer/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Customer/CustomerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

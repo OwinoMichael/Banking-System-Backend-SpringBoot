@@ -42,7 +42,7 @@ public class CustomerController {
     }
 
     @PostMapping("/add-customers")
-    public ResponseEntity<SuccessResponse> addCustomer(Customer customer){
+    public ResponseEntity<SuccessResponse> addCustomer(@RequestBody Customer customer){
         return addCustomer.execute(customer);
     }
 
