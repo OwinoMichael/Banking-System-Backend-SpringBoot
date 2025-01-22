@@ -1,5 +1,7 @@
 package com.mike.mike.Customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mike.mike.Person.Person;
 import jakarta.persistence.*;
 
@@ -24,6 +26,7 @@ public class Customer {
     private LocalDate updatedAt;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     @MapsId
     @JoinColumn(name = "id")
     private Person person;

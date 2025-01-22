@@ -1,5 +1,6 @@
 package com.mike.mike.Person;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mike.mike.Customer.Customer;
 import com.mike.mike.Employee.Employee;
 import jakarta.persistence.*;
@@ -50,6 +51,7 @@ public class Person {
     private Customer customer;
 
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Employee employee;
 
     public Person() {
