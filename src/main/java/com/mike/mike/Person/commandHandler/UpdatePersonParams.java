@@ -1,16 +1,15 @@
 package com.mike.mike.Person.commandHandler;
 
 import com.mike.mike.Person.Person;
-import jakarta.persistence.Entity;
 
-public class UpdatePersonCommand {
+public class UpdatePersonParams {
     private Integer id;
     private Person person;
 
-    public UpdatePersonCommand() {
+    public UpdatePersonParams() {
     }
 
-    public UpdatePersonCommand(Integer id, Person person) {
+    public UpdatePersonParams(Integer id, Person person) {
         this.id = id;
         this.person = person;
     }

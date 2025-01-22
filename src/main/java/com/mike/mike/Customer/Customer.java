@@ -1,4 +1,4 @@
-package com.mike.mike.Employee;
+package com.mike.mike.Customer;
 
 import jakarta.persistence.*;
 
@@ -6,15 +6,15 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "employee")
-public class Employee {
+@Table(name = "customer")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
-    @Column(name = "position")
-    private String position;
+    @Column(name = "customer_type")
+    private String customerType;
 
     @Column(name = "created_at")
     private LocalDate createdAt;
@@ -22,31 +22,30 @@ public class Employee {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-
-    public Employee() {
+    public Customer() {
     }
 
-    public Employee(Integer id, String position, LocalDate createdAt, LocalDate updatedAt) {
+    public Customer(int id, String customerType, LocalDate createdAt, LocalDate updatedAt) {
         this.id = id;
-        this.position = position;
+        this.customerType = customerType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer employeeId) {
-        this.id = employeeId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getPosition() {
-        return position;
+    public String getCustomerType() {
+        return customerType;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
     }
 
     public LocalDate getCreatedAt() {
@@ -69,20 +68,20 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position) && Objects.equals(createdAt, employee.createdAt) && Objects.equals(updatedAt, employee.updatedAt);
+        Customer customer = (Customer) o;
+        return id == customer.id && customerType == customer.customerType && Objects.equals(createdAt, customer.createdAt) && Objects.equals(updatedAt, customer.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, position, createdAt, updatedAt);
+        return Objects.hash(id, customerType, createdAt, updatedAt);
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeId=" + id +
-                ", position='" + position + '\'' +
+        return "Customer{" +
+                "id=" + id +
+                ", customerType=" + customerType +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

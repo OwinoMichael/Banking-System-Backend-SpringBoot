@@ -3,7 +3,7 @@ package com.mike.mike.Person;
 import com.mike.mike.Person.commandHandler.AddPerson;
 import com.mike.mike.Person.commandHandler.DeletePerson;
 import com.mike.mike.Person.commandHandler.UpdatePerson;
-import com.mike.mike.Person.commandHandler.UpdatePersonCommand;
+import com.mike.mike.Person.commandHandler.UpdatePersonParams;
 import com.mike.mike.Person.queryHandler.GetAllPersons;
 import com.mike.mike.Person.queryHandler.GetPerson;
 import com.mike.mike.SuccessResponse.SuccessResponse;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/persons")
@@ -53,9 +52,9 @@ public class PersonController {
 
     @PutMapping("/update-person/{id}")
     public ResponseEntity<SuccessResponse> updatePerson(@PathVariable Integer id, @RequestBody Person person){
-        UpdatePersonCommand updatePersonCommand = new UpdatePersonCommand(id, person);
+        UpdatePersonParams updatePersonParams = new UpdatePersonParams(id, person);
 
-        return updatePerson.execute(updatePersonCommand);
+        return updatePerson.execute(updatePersonParams);
     }
 
     @DeleteMapping("/{id}")

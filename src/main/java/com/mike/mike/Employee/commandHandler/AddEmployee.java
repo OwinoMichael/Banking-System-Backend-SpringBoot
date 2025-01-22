@@ -17,7 +17,9 @@ public class AddEmployee implements Command<Employee, SuccessResponse> {
     }
 
     @Override
-    public ResponseEntity<SuccessResponse> execute(Employee entity) {
-        return null;
+    public ResponseEntity<SuccessResponse> execute(Employee employee) {
+        employeeRepository.save(employee);
+
+        return ResponseEntity.ok(new SuccessResponse("true", "Employee Added Successfully"));
     }
 }

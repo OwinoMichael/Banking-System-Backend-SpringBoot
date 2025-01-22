@@ -3,7 +3,7 @@ package com.mike.mike.Employee;
 import com.mike.mike.Employee.commandHandler.AddEmployee;
 import com.mike.mike.Employee.commandHandler.DeleteEmployee;
 import com.mike.mike.Employee.commandHandler.UpdateEmployee;
-import com.mike.mike.Employee.commandHandler.UpdateEmployeeCommand;
+import com.mike.mike.Employee.commandHandler.UpdateEmployeeParams;
 import com.mike.mike.Employee.queryHandler.GetAllEmployees;
 import com.mike.mike.Employee.queryHandler.GetEmployee;
 import com.mike.mike.SuccessResponse.SuccessResponse;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
 
     private final GetAllEmployees getAllEmployees;
@@ -40,18 +40,18 @@ public class EmployeeController {
         return getEmployee.execute(id);
     }
 
-    @PostMapping("/add-employee")
+    @PostMapping("/add-employees")
     public ResponseEntity<SuccessResponse> addEmployee(@RequestBody Employee employee){
         return addEmployee.execute(employee);
     }
 
-    @PutMapping("/update-employee/{id}")
+    @PutMapping("/update-employees/{id}")
     public ResponseEntity<SuccessResponse> updateEmployee(@PathVariable Integer id, @RequestBody Employee employee){
-        UpdateEmployeeCommand updateCommand = new UpdateEmployeeCommand(id, employee);
+        UpdateEmployeeParams updateCommand = new UpdateEmployeeParams(id, employee);
         return updateEmployee.execute(updateCommand);
     }
 
-    @DeleteMapping("/delete-employee/{id}")
+    @DeleteMapping("/delete-employees/{id}")
     public ResponseEntity<SuccessResponse> deleteEmployee(@PathVariable Integer id){
         return deleteEmployee.execute(id);
     }

@@ -12,3 +12,11 @@ CREATE TABLE person (
 
 );
 
+CREATE TABLE customer(
+	id INT PRIMARY KEY auto_increment,
+    customer_type VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+);
+

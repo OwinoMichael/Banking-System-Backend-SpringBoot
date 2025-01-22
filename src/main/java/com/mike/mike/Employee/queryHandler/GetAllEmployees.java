@@ -18,7 +18,8 @@ public class GetAllEmployees implements Command<Void, List<Employee>> {
     }
 
     @Override
-    public ResponseEntity<List<Employee>> execute(Void entity) {
-        return null;
+    public ResponseEntity<List<Employee>> execute(Void Input) {
+        List<Employee> employees = employeeRepository.findAll();
+        return ResponseEntity.ok(employees);
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UpdatePerson implements Command<UpdatePersonCommand, SuccessResponse> {
+public class UpdatePerson implements Command<UpdatePersonParams, SuccessResponse> {
 
     final private PersonRepository personRepository;
 
@@ -20,9 +20,9 @@ public class UpdatePerson implements Command<UpdatePersonCommand, SuccessRespons
     }
 
     @Override
-    public ResponseEntity<SuccessResponse> execute(UpdatePersonCommand updatePersonCommand) {
-        Integer id = updatePersonCommand.getId();
-        Person person = updatePersonCommand.getPerson();
+    public ResponseEntity<SuccessResponse> execute(UpdatePersonParams updatePersonParams) {
+        Integer id = updatePersonParams.getId();
+        Person person = updatePersonParams.getPerson();
 
         Optional<Person> updatePerson = personRepository.findById(id);
         if(updatePerson.isEmpty()){

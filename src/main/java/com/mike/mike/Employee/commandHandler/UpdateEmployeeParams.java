@@ -2,14 +2,14 @@ package com.mike.mike.Employee.commandHandler;
 
 import com.mike.mike.Employee.Employee;
 
-public class UpdateEmployeeCommand {
+public class UpdateEmployeeParams {
     private Integer id;
     private Employee employee;
 
-    public UpdateEmployeeCommand() {
+    public UpdateEmployeeParams() {
     }
 
-    public UpdateEmployeeCommand(Integer id, Employee employee) {
+    public UpdateEmployeeParams(Integer id, Employee employee) {
         this.id = id;
         this.employee = employee;
     }
