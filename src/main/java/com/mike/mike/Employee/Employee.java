@@ -1,5 +1,6 @@
 package com.mike.mike.Employee;
 
+import com.mike.mike.Person.Person;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,23 +23,28 @@ public class Employee {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @MapsId
+    @JoinColumn(name = "id")
+    private Person person;
 
     public Employee() {
     }
 
-    public Employee(Integer id, String position, LocalDate createdAt, LocalDate updatedAt) {
+    public Employee(Integer id, String position, LocalDate createdAt, LocalDate updatedAt, Person person) {
         this.id = id;
         this.position = position;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.person = person;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer employeeId) {
-        this.id = employeeId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPosition() {
@@ -65,26 +71,35 @@ public class Employee {
         this.updatedAt = updatedAt;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position) && Objects.equals(createdAt, employee.createdAt) && Objects.equals(updatedAt, employee.updatedAt);
+        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position) && Objects.equals(createdAt, employee.createdAt) && Objects.equals(updatedAt, employee.updatedAt) && Objects.equals(person, employee.person);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, position, createdAt, updatedAt);
+        return Objects.hash(id, position, createdAt, updatedAt, person);
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "employeeId=" + id +
+                "id=" + id +
                 ", position='" + position + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", person=" + person +
                 '}';
     }
 }
