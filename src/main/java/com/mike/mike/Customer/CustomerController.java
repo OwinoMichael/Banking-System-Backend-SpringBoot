@@ -31,7 +31,7 @@ public class CustomerController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Customer>> getAllCustomers(){
+    public ResponseEntity<List<CustomerResponseDTO>> getAllCustomers(){
         return getAllCustomers.execute(null);
     }
 

@@ -1,5 +1,8 @@
 package com.mike.mike.Customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mike.mike.Person.Person;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,14 +25,21 @@ public class Customer {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
+    @MapsId
+    @JoinColumn(name = "person_id", referencedColumnName = "person_id") // Maps to Person's primary key
+    private Person person;
+
     public Customer() {
     }
 
-    public Customer(int id, String customerType, LocalDate createdAt, LocalDate updatedAt) {
+    public Customer(int id, String customerType, LocalDate createdAt, LocalDate updatedAt, Person person) {
         this.id = id;
         this.customerType = customerType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.person = person;
     }
 
     public int getId() {
@@ -64,26 +74,35 @@ public class Customer {
         this.updatedAt = updatedAt;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && customerType == customer.customerType && Objects.equals(createdAt, customer.createdAt) && Objects.equals(updatedAt, customer.updatedAt);
+        return id == customer.id && Objects.equals(customerType, customer.customerType) && Objects.equals(createdAt, customer.createdAt) && Objects.equals(updatedAt, customer.updatedAt) && Objects.equals(person, customer.person);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, customerType, createdAt, updatedAt);
+        return Objects.hash(id, customerType, createdAt, updatedAt, person);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", customerType=" + customerType +
+                ", customerType='" + customerType + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", person=" + person +
                 '}';
     }
 }
