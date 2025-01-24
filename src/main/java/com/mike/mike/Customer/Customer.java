@@ -25,10 +25,10 @@ public class Customer {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonBackReference
     @MapsId
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "person_id", referencedColumnName = "person_id") // Maps to Person's primary key
     private Person person;
 
     public Customer() {

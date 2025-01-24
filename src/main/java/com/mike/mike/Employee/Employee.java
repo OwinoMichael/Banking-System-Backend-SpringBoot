@@ -25,10 +25,10 @@ public class Employee {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonBackReference
     @MapsId
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;
 
     public Employee() {

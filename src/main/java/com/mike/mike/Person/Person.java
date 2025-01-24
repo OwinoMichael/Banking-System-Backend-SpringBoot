@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Person {
 
     @Id
+    @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -48,6 +49,7 @@ public class Person {
     private UserTypeEnum userTypeEnum;
 
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Customer customer;
 
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
