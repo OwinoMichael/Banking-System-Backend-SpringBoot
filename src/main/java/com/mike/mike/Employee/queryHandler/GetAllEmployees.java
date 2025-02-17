@@ -1,5 +1,6 @@
 package com.mike.mike.Employee.queryHandler;
 
+import com.mike.mike.Branch.Branch;
 import com.mike.mike.Command;
 import com.mike.mike.Employee.Employee;
 import com.mike.mike.Employee.EmployeeRepository;
@@ -33,6 +34,7 @@ public class GetAllEmployees implements Command<Void, List<EmployeeResponseDTO>>
         dto.setPosition(employee.getPosition());
         dto.setCreatedAt(employee.getCreatedAt());
         dto.setUpdatedAt(employee.getUpdatedAt());
+        dto.setBranch(employee.getBranch());
 
         Person person = employee.getPerson();
         if (person != null) {
@@ -45,6 +47,8 @@ public class GetAllEmployees implements Command<Void, List<EmployeeResponseDTO>>
             personDTO.setAddress(person.getAddress());
             dto.setPerson(personDTO);
         }
+
+
 
         return dto;
     }

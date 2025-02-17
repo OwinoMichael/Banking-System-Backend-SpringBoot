@@ -2,6 +2,7 @@ package com.mike.mike.Employee;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mike.mike.Branch.Branch;
 import com.mike.mike.Person.Person;
 import jakarta.persistence.*;
 
@@ -31,15 +32,20 @@ public class Employee {
     @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "branch_id", referencedColumnName = "branch_id")
+    private Branch branch;
+
     public Employee() {
     }
 
-    public Employee(Integer id, String position, LocalDate createdAt, LocalDate updatedAt, Person person) {
+    public Employee(Integer id, String position, LocalDate createdAt, LocalDate updatedAt, Person person, Branch branch) {
         this.id = id;
         this.position = position;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.person = person;
+        this.branch = branch;
     }
 
     public Integer getId() {
@@ -82,17 +88,25 @@ public class Employee {
         this.person = person;
     }
 
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position) && Objects.equals(createdAt, employee.createdAt) && Objects.equals(updatedAt, employee.updatedAt) && Objects.equals(person, employee.person);
+        return Objects.equals(id, employee.id) && Objects.equals(position, employee.position) && Objects.equals(createdAt, employee.createdAt) && Objects.equals(updatedAt, employee.updatedAt) && Objects.equals(person, employee.person) && Objects.equals(branch, employee.branch);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, position, createdAt, updatedAt, person);
+        return Objects.hash(id, position, createdAt, updatedAt, person, branch);
     }
 
     @Override
@@ -103,6 +117,7 @@ public class Employee {
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", person=" + person +
+                ", branch=" + branch +
                 '}';
     }
 }

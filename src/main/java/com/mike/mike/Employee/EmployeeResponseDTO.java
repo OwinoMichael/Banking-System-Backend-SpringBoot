@@ -1,5 +1,6 @@
 package com.mike.mike.Employee;
 
+import com.mike.mike.Branch.Branch;
 import com.mike.mike.Person.PersonResponseDTO;
 
 import java.time.LocalDate;
@@ -10,16 +11,18 @@ public class EmployeeResponseDTO {
     private LocalDate createdAt;
     private LocalDate updatedAt;
     private PersonResponseDTO person;
+    private Branch branch;
 
     public EmployeeResponseDTO() {
     }
 
-    public EmployeeResponseDTO(Integer id, String position, LocalDate createdAt, LocalDate updatedAt, PersonResponseDTO person) {
+    public EmployeeResponseDTO(Integer id, String position, LocalDate createdAt, LocalDate updatedAt, PersonResponseDTO person, Branch branch) {
         this.id = id;
         this.position = position;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.person = person;
+        this.branch = branch;
     }
 
     public Integer getId() {
@@ -60,5 +63,13 @@ public class EmployeeResponseDTO {
 
     public void setPerson(PersonResponseDTO person) {
         this.person = person;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 }
