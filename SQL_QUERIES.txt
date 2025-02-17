@@ -31,3 +31,15 @@ CREATE TABLE branch(
 
 );
 
+CREATE TABLE account(
+	account_id INT PRIMARY KEY AUTO_INCREMENT,
+    account_number VARCHAR(20) NOT NULL,
+    account_type VARCHAR(20) NOT NULL,
+    current_balance DECIMAL(10, 2) NOT NULL,
+    date_opened DATE NOT NULL,
+    date_closed DATE,
+    account_status VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
