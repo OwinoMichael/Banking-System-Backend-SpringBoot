@@ -47,7 +47,7 @@ public class GetAllCustomers implements Query<Void, List<CustomerResponseDTO>> {
             dto.setPerson(personDTO);
         }
 
-        List<Long> accountIds = customer.getAccounts().stream()
+        List<Integer> accountIds = customer.getAccounts().stream()
                 .map(Account::getAccountId)  // Ensure Account has a getAccountId() method
                 .collect(Collectors.toList());
 

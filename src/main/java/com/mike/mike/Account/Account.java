@@ -18,7 +18,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long accountId;
+    private Integer accountId;
 
     @Column(name = "account_number")
     private String accountNumber;
@@ -56,7 +56,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(Long accountId, String accountNumber, String accountType, String accountBalance, Date dateOpened, Date dateClosed, String accountStatus, LocalDate createdAt, LocalDate updatedAt, List<Customer> customers) {
+    public Account(Integer accountId, String accountNumber, String accountType, String accountBalance, Date dateOpened, Date dateClosed, String accountStatus, LocalDate createdAt, LocalDate updatedAt, List<Customer> customers) {
         this.accountId = accountId;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
@@ -69,11 +69,11 @@ public class Account {
         this.customers = customers;
     }
 
-    public Long getAccountId() {
+    public Integer getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(Long account_id) {
+    public void setAccountId(Integer account_id) {
         this.accountId = account_id;
     }
 

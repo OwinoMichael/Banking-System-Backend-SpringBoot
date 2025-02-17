@@ -12,12 +12,12 @@ public class CustomerResponseDTO {
     private LocalDate createdAt;
     private LocalDate updatedAt;
     private PersonResponseDTO person;
-    private List<Long> accounts;
+    private List<Integer> accounts;
 
     public CustomerResponseDTO() {
     }
 
-    public CustomerResponseDTO(Integer id, String customerType, LocalDate createdAt, LocalDate updatedAt, PersonResponseDTO person, List<Long> accounts) {
+    public CustomerResponseDTO(Integer id, String customerType, LocalDate createdAt, LocalDate updatedAt, PersonResponseDTO person, List<Integer> accounts) {
         this.id = id;
         this.customerType = customerType;
         this.createdAt = createdAt;
@@ -66,11 +66,11 @@ public class CustomerResponseDTO {
         this.person = person;
     }
 
-    public List<Long> getAccounts() {
+    public List<Integer> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(List<Long> accounts) {
+    public void setAccounts(List<Integer> accounts) {
         this.accounts = accounts;
     }
 }
