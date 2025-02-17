@@ -1,5 +1,6 @@
 package com.mike.mike.Customer.QueryHandler;
 
+import com.mike.mike.Account.Account;
 import com.mike.mike.Customer.Customer;
 import com.mike.mike.Customer.CustomerRepository;
 import com.mike.mike.Customer.CustomerResponseDTO;
@@ -46,8 +47,16 @@ public class GetAllCustomers implements Query<Void, List<CustomerResponseDTO>> {
             dto.setPerson(personDTO);
         }
 
+        List<Long> accountIds = customer.getAccounts().stream()
+                .map(Account::getAccountId)  // Ensure Account has a getAccountId() method
+                .collect(Collectors.toList());
+
+        dto.setAccounts(accountIds);
+
         return dto;
     }
+
 }
+
 
 

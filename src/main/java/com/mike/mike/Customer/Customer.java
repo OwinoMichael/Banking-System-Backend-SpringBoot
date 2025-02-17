@@ -1,15 +1,17 @@
 package com.mike.mike.Customer;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
+import com.mike.mike.Account.Account;
 import com.mike.mike.Person.Person;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "customer")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Customer {
 
     @Id
@@ -31,15 +33,25 @@ public class Customer {
     @JoinColumn(name = "person_id", referencedColumnName = "person_id") // Maps to Person's primary key
     private Person person;
 
+    @ManyToMany
+    @JsonBackReference
+    @JoinTable(
+            name = "customer_account",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "account_id")
+    )
+    private List<Account> accounts;
+
     public Customer() {
     }
 
-    public Customer(int id, String customerType, LocalDate createdAt, LocalDate updatedAt, Person person) {
+    public Customer(int id, String customerType, LocalDate createdAt, LocalDate updatedAt, Person person, List<Account> accounts) {
         this.id = id;
         this.customerType = customerType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.person = person;
+        this.accounts = accounts;
     }
 
     public int getId() {
@@ -82,18 +94,27 @@ public class Customer {
         this.person = person;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && Objects.equals(customerType, customer.customerType) && Objects.equals(createdAt, customer.createdAt) && Objects.equals(updatedAt, customer.updatedAt) && Objects.equals(person, customer.person);
+        return id == customer.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, customerType, createdAt, updatedAt, person);
+        return Objects.hash(id);
     }
+
 
     @Override
     public String toString() {
@@ -103,6 +124,7 @@ public class Customer {
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", person=" + person +
+                ", accounts=" + accounts +
                 '}';
     }
 }

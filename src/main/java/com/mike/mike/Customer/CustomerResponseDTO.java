@@ -1,8 +1,10 @@
 package com.mike.mike.Customer;
 
+import com.mike.mike.Account.Account;
 import com.mike.mike.Person.PersonResponseDTO;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class CustomerResponseDTO {
     private Integer id;
@@ -10,16 +12,18 @@ public class CustomerResponseDTO {
     private LocalDate createdAt;
     private LocalDate updatedAt;
     private PersonResponseDTO person;
+    private List<Long> accounts;
 
     public CustomerResponseDTO() {
     }
 
-    public CustomerResponseDTO(Integer id, String customerType, LocalDate createdAt, LocalDate updatedAt, PersonResponseDTO person) {
+    public CustomerResponseDTO(Integer id, String customerType, LocalDate createdAt, LocalDate updatedAt, PersonResponseDTO person, List<Long> accounts) {
         this.id = id;
         this.customerType = customerType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.person = person;
+        this.accounts = accounts;
     }
 
     public Integer getId() {
@@ -60,5 +64,13 @@ public class CustomerResponseDTO {
 
     public void setPerson(PersonResponseDTO person) {
         this.person = person;
+    }
+
+    public List<Long> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Long> accounts) {
+        this.accounts = accounts;
     }
 }
