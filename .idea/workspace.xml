@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="418639e3-30d5-482c-b319-cd6863a28129" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Transaction/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Transaction/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/mike/Transaction/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/mike/Transaction/TransactionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -43,7 +45,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.BankingSystemBackendApplication.executor": "Run",
-    "git-widget-placeholder": "BrandAndAccount",
+    "git-widget-placeholder": "Transaction",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/mikeowino/Developer/Projects/Banking-System-Backend-SpringBoot",
     "node.js.detected.package.eslint": "true",
@@ -96,7 +98,7 @@
       <workItem from="1737002253350" duration="2854000" />
       <workItem from="1737040417474" duration="24780000" />
       <workItem from="1737691105094" duration="2759000" />
-      <workItem from="1739374390961" duration="33243000" />
+      <workItem from="1739374390961" duration="43289000" />
     </task>
     <servers />
   </component>
