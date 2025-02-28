@@ -1,10 +1,10 @@
 # Banking-System-Backend-SpringBoot
 Building a banking application backend using Java Springboot 
 
-Overview
+# Overview
 A scalable banking backend system developed using Java Spring Boot, designed to ensure secure transactions, API integrations, and high performance for financial services.
 
-Key Features
+# Key Features
 ✅ Scalable Architecture – Implements design patterns transferable to C# .NET (e.g., Dependency Injection).
 ✅ Secure Transactions – Enforces OAuth, SSL/TLS, and Security Filter Chains for authentication & authorization.
 ✅ Optimized Performance – PostgreSQL indexing & caching reduce query response times by 40%.
